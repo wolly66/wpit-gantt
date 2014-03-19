@@ -1,0 +1,116 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPIT-GANTT 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-17 19:44+0100\n"
+"PO-Revision-Date: 2012-08-17 19:45+0100\n"
+"Last-Translator: wolly (paolo valenti) <wolly66@gmail.com>\n"
+"Language-Team: WordPress Italy <info@wordpress-it.it>\n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: files/wpit-gantt-functions.php:28
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Non hai i permessi per accedere a questa pagina"
+
+#: files/wpit-gantt-start.php:43
+msgid "GANTT Options"
+msgstr "Opzioni GANTT"
+
+#: files/wpit-gantt-start.php:43
+msgid "Add new"
+msgstr "Nuovo"
+
+#: files/wpit-gantt-start.php:52 files/wpit-gantt-start.php:105
+msgid "GANTT Description"
+msgstr "Descrizione del GANTT"
+
+#: files/wpit-gantt-start.php:55 files/wpit-gantt-start.php:108
+#: files/wpit-gantt-start.php:185 files/wpit-gantt-start.php:255
+msgid "Cellwidth"
+msgstr "Larghezza cella"
+
+#: files/wpit-gantt-start.php:58 files/wpit-gantt-start.php:111
+#: files/wpit-gantt-start.php:190 files/wpit-gantt-start.php:260
+msgid "Cellheight"
+msgstr "Altezza cella"
+
+#: files/wpit-gantt-start.php:61 files/wpit-gantt-start.php:114
+#, fuzzy
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: files/wpit-gantt-start.php:85
+msgid "View, Add, Modify, Delete data"
+msgstr "Visualizza, aggiungi, modifica, cancella i dati"
+
+#: files/wpit-gantt-start.php:87
+msgid "Modify GANTT"
+msgstr "Modifica il GANTT"
+
+#: files/wpit-gantt-start.php:88
+msgid "Delete GANTT"
+msgstr "Cancella GANTT"
+
+#: files/wpit-gantt-start.php:138 files/wpit-gantt-start.php:217
+msgid "New GANTT"
+msgstr "Nuovo GANTT"
+
+#: files/wpit-gantt-start.php:158 files/wpit-gantt-start.php:236
+#: files/wpit-gantt-start.php:318
+msgid "Settings saved."
+msgstr "Impostazioni salvate."
+
+#: files/wpit-gantt-start.php:180
+msgid "Title: The title of the new GANTT"
+msgstr "Titolo: il titolo del nuovo GANTT"
+
+#: files/wpit-gantt-start.php:194 files/wpit-gantt-start.php:264
+msgid ""
+"Today: (optional, default: true) Show or hide the today marker. It will be "
+"displayed by default"
+msgstr ""
+"Oggi: (facoltativo, default:true) Mostra o nasconde il marcatore del giorno "
+"corrente. Viene mostrato di default"
+
+#: files/wpit-gantt-start.php:201
+msgid "Add"
+msgstr "Aggiungi"
+
+#: files/wpit-gantt-start.php:250
+msgid "Title: The title of the  GANTT"
+msgstr "Titolo: il titolo del GANTT"
+
+#: files/wpit-gantt-start.php:271 files/wpit-gantt-start.php:394
+msgid "Update"
+msgstr "Aggiorna"
+
+#: files/wpit-gantt-start.php:285
+msgid "GANTT settings"
+msgstr "Impostazione GANTT"
+
+#: files/wpit-gantt-start.php:343 files/wpit-gantt-start.php:370
+msgid "Label: The label will be displayed in the sidebar"
+msgstr "Etichetta: l'etichetta che verrà mostrata nella barra laterale"
+
+#: files/wpit-gantt-start.php:348 files/wpit-gantt-start.php:375
+msgid "Start: The start date. Must be in the following format: YYYY-MM-DD"
+msgstr ""
+"Data inizio: la data iniziale. Deve essere nel seguente formato AAAA-MM-GG"
+
+#: files/wpit-gantt-start.php:353 files/wpit-gantt-start.php:380
+msgid "End:   The end date. Must be in the following format: YYYY-MM-DD"
+msgstr "Data fine: la data finale. Deve essere nel seguente formato AAAA-MM-GG"
+
+#: files/wpit-gantt-start.php:357 files/wpit-gantt-start.php:384
+msgid ""
+"Class: An optional class name. (available by default: important, urgent)"
+msgstr ""
+"Classe: un nome opzionale di classe. (disponibili di default: important, "
+"urgente)"
