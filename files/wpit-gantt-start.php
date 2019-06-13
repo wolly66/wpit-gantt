@@ -12,18 +12,18 @@ function wpit_gantt_first(){
 	wpit_gantt_check_permissions();
 
 
-		if ($_GET['page'] == 'gantt-options' && $_GET['action'] == 'delete') {
+		if ($_GET['page'] == 'gantt-manage' && $_GET['action'] == 'delete') {
 		$id = $_GET['id'];
         wpit_gantt_delete( $id );
         }
-        else if ($_GET['page'] == 'gantt-options' && $_GET['action'] == 'new') {
+        else if ($_GET['page'] == 'gantt-manage' && $_GET['action'] == 'new') {
         wpit_new_gantt();
         }
-        else if ($_GET['page'] == 'gantt-options' && $_GET['action'] == 'data') {
+        else if ($_GET['page'] == 'gantt-manage' && $_GET['action'] == 'data') {
         $id = $_GET['id'];
         wpit_gestione_gantt( $id );
         }
-        else if ($_GET['page'] == 'gantt-options' && $_GET['action'] == 'update') {
+        else if ($_GET['page'] == 'gantt-manage' && $_GET['action'] == 'update') {
 		$id = $_GET['id'];
         wpit_gantt_update ( $id );
         
@@ -40,7 +40,7 @@ function wpit_gantt_diplay () {
 	$th = ' ';
 
 		//Page title
-		$th .= "<div class=\"wrap\"><div id=\"icon-options-general\" class=\"icon32\"><br /></div><h2>" . __( 'GANTT Options' , 'wpit-gantt' ) . "<a href=\"admin.php?page=gantt-options&action=new\" class=\"add-new-h2\">" .   __( 'Add new' , 'wpit-gantt' )  . "</a></h2></div>\n";   
+		$th .= "<div class=\"wrap\"><div id=\"icon-options-general\" class=\"icon32\"><br /></div><h2>" . __( 'GANTT Graphs' , 'wpit-gantt' ) . "<a href=\"admin.php?page=gantt-manage&action=new\" class=\"add-new-h2\">" .   __( 'Add new' , 'wpit-gantt' )  . "</a></h2></div>\n";   
 
 
 			//table header
@@ -49,7 +49,7 @@ function wpit_gantt_diplay () {
 					$th .= "<thead>\n";
 						$th .= "<tr>\n";
 				        	$th .= "<th scope=\"col\" id=\"descr\" class=\"manage-column column-descr\">\n";
-				        		$th .= "<span>" . __( 'GANTT Description' , 'wpit-gantt' ) . "</span>\n";
+				        		$th .= "<span>" . __( 'Chart Title' , 'wpit-gantt' ) . "</span>\n";
 				        	$th .= "</th>\n";
 				        	$th .= "<th scope=\"col\" id=\"descr\" class=\"manage-column column-descr\">\n";
 				        		$th .= "<span>" . __( 'Cellwidth' , 'wpit-gantt' ) . "</span>\n";
@@ -82,10 +82,10 @@ function wpit_gantt_diplay () {
 							
 									
 							
-									$th .= "<a title=\"Manage data\" href=\"admin.php?page=gantt-options&action=data&id=$numerator\">" . __( 'View, Add, Modify, Delete data' , 'wpit-gantt' ) . " | </a>\n";
+									$th .= "<a title=\"Edit\" href=\"admin.php?page=gantt-manage&action=data&id=$numerator\">" . __( 'Edit' , 'wpit-gantt' ) . " | </a>\n";
 							
-									$th .= "<a title=\"Modify GANTT\" href=\"admin.php?page=gantt-options&action=update&id=$numerator\">" . __( 'Modify GANTT' , 'wpit-gantt' ) . " | </a>\n";
-									$th .= "<a title=\"Delete GANTT\" onclick=\"return confirm('Are you sure?')\" href=\"admin.php?page=gantt-options&action=delete&id=$numerator\">" . __( 'Delete GANTT' , 'wpit-gantt' ) . "</a>\n";
+									$th .= "<a title=\"Settings\" href=\"admin.php?page=gantt-manage&action=update&id=$numerator\">" . __( 'Settings' , 'wpit-gantt' ) . " | </a>\n";
+									$th .= "<a title=\"Delete\" onclick=\"return confirm('Are you sure?')\" href=\"admin.php?page=gantt-manage&action=delete&id=$numerator\">" . __( 'Delete' , 'wpit-gantt' ) . "</a>\n";
 
 
 								$th .= "</div></div>\n";
@@ -102,7 +102,7 @@ function wpit_gantt_diplay () {
 				$th .= "<tfoot>\n";
 					$th .= "<tr>\n";
 				        	$th .= "<th scope=\"col\" id=\"descr\" class=\"manage-column column-descr\">\n";
-				        		$th .= "<span>" . __( 'GANTT Description' , 'wpit-gantt' ) . "</span>\n";
+				        		$th .= "<span>" . __( 'Chart Title' , 'wpit-gantt' ) . "</span>\n";
 				        	$th .= "</th>\n";
 				        	$th .= "<th scope=\"col\" id=\"descr\" class=\"manage-column column-descr\">\n";
 				        		$th .= "<span>" . __( 'Cellwidth' , 'wpit-gantt' ) . "</span>\n";
@@ -327,7 +327,14 @@ function wpit_gestione_gantt( $id ){
 ?>		
 				<form method="post" action=""> 
 					<table class="form-table">
-					
+					<thead>
+                    <tr valign="top" style="font-weight:bold;">
+        				<td><?php echo __('Label' , 'wpit-gantt') ;  ?></td>
+        				<td><?php echo __('Start Date (YYYY-MM-DD)' , 'wpit-gantt') ;  ?></td>
+                    	<td><?php echo __('End Date (YYYY-MM-DD)' , 'wpit-gantt') ;  ?></td>
+                        <td><?php echo __('Class （important, urgent)' , 'wpit-gantt') ;  ?></td>
+        			</tr>
+                    </thead>	<tbody>
 					<?php 
 					$index = 0;
 					if ( !empty($options)) {
@@ -339,26 +346,13 @@ function wpit_gestione_gantt( $id ){
 						$c = $op['class'];
 			
 			?>
+            
         				<tr valign="top">
-        					<th scope="row"><?php echo __('Label: The label will be displayed in the sidebar' , 'wpit-gantt') ;  ?></th>
+        					
         						<td><input type="text" name="gantt[<?php echo $index; ?>][label]" value="<?php echo $l ?>" class="large-text code" /></td>
-        				</tr>
-         
-        				<tr valign="top">
-        					<th scope="row"><?php echo  __('Start: The start date. Must be in the following format: YYYY-MM-DD' , 'wpit-gantt') ; ?></th>
         						<td><input type="text" name="gantt[<?php echo $index; ?>][start]" value="<?php echo $s ?>" class="large-text code"/></td>
-        				</tr>
-        
-        				<tr valign="top">
-        					<th scope="row"><?php echo  __('End:   The end date. Must be in the following format: YYYY-MM-DD' , 'wpit-gantt') ; ?></th>
         						<td><input type="text" name="gantt[<?php echo $index; ?>][end]" value="<?php echo $e ?>" class="large-text code"/></td>
-        				</tr>
-        				<tr valign="top">
-        					<th scope="row"><?php echo  __('Class: An optional class name. (available by default: important, urgent)' , 'wpit-gantt' ) ; ?></th>
         						<td><input type="text" name="gantt[<?php echo $index; ?>][class]" value="<?php echo $c ?>" class="large-text code"/></td>
-        				</tr>
-        				<tr>
-        					<td><hr /></td>
         				</tr>
         				<?php $index++;
         				} //end foreach 
@@ -366,27 +360,32 @@ function wpit_gestione_gantt( $id ){
 	        				$index + 1;
 	        				} //end empty options control
         				?>
-        				<tr valign="top">
-        					<th scope="row"><?php echo __('Label: The label will be displayed in the sidebar' , 'wpit-gantt') ;  ?></th>
+                                             </tbody></table>
+ <tr/>
+                    <h3><?php echo __('Add new entry' , 'wpit-gantt') ;  ?> 
+        			
+					<table class="form-table">
+					<thead>
+                    <tr valign="top" style="font-weight:bold;">
+        				<td><?php echo __('Label' , 'wpit-gantt') ;  ?></td>
+        				<td><?php echo __('Start Date (YYYY-MM-DD)' , 'wpit-gantt') ;  ?></td>
+                    	<td><?php echo __('End Date (YYYY-MM-DD)' , 'wpit-gantt') ;  ?></td>
+                        <td><?php echo __('Class （important, urgent)' , 'wpit-gantt') ;  ?></td>
+        			</tr>
+                    </thead>
+                    <tbody>
+                        <tr valign="top">
         						<td><input type="text" name="gantt[<?php echo $index; ?>][label]" value="" class="large-text code" /></td>
-        				</tr>
-         
-        				<tr valign="top">
-        					<th scope="row"><?php echo  __('Start: The start date. Must be in the following format: YYYY-MM-DD' , 'wpit-gantt') ; ?></th>
         						<td><input type="text" name="gantt[<?php echo $index; ?>][start]" value="" class="large-text code"/></td>
-        				</tr>
-        
-        				<tr valign="top">
-        					<th scope="row"><?php echo  __('End:   The end date. Must be in the following format: YYYY-MM-DD' , 'wpit-gantt') ; ?></th>
+        				
         						<td><input type="text" name="gantt[<?php echo $index; ?>][end]" value="" class="large-text code"/></td>
-        				</tr>
-        				<tr valign="top">
-        					<th scope="row"><?php echo  __('Class: An optional class name. (available by default: important, urgent)' , 'wpit-gantt' ) ; ?></th>
+        				
         						<td><input type="text" name="gantt[<?php echo $index; ?>][class]" value="" class="large-text code"/></td>
         				</tr>
         				<tr>
         					<td><hr /></td>
         				</tr>
+                        </tbody>
 
     				</table>
 				<p class="submit">
