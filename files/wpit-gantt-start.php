@@ -12,24 +12,26 @@ function wpit_gantt_first(){
 	wpit_gantt_check_permissions();
 
 
-		if ($_GET['page'] == 'gantt-manage' && $_GET['action'] == 'delete') {
-		$id = $_GET['id'];
-        wpit_gantt_delete( $id );
-        }
-        else if ($_GET['page'] == 'gantt-manage' && $_GET['action'] == 'new') {
-        wpit_new_gantt();
-        }
-        else if ($_GET['page'] == 'gantt-manage' && $_GET['action'] == 'data') {
-        $id = $_GET['id'];
-        wpit_gestione_gantt( $id );
-        }
-        else if ($_GET['page'] == 'gantt-manage' && $_GET['action'] == 'update') {
-		$id = $_GET['id'];
-        wpit_gantt_update ( $id );
-        
+		if ( $_GET['page'] == 'gantt-manage' && ( isset( $_GET['action'] ) &&  $_GET['action'] == 'delete' ) ){
+			
+			$id = $_GET['id'];
+			wpit_gantt_delete( $id );
+			
+        } elseif ($_GET['page'] == 'gantt-manage' && ( isset( $_GET['action'] )  && $_GET['action'] == 'new' ) ) {
+        	wpit_new_gantt();
+        	
+        } elseif ($_GET['page'] == 'gantt-manage' && ( isset( $_GET['action'] )  && $_GET['action'] == 'data' ) ){
+	        
+        	$id = $_GET['id'];
+			wpit_gestione_gantt( $id );
+        }  elseif ($_GET['page'] == 'gantt-manage' && ( isset( $_GET['action'] ) && $_GET['action'] == 'update' ) ) {
+		
+			$id = $_GET['id'];
+			wpit_gantt_update ( $id );
         
         } else {
-	    wpit_gantt_diplay ();
+	        
+	    	wpit_gantt_diplay ();
 	    }
         
 }
@@ -68,13 +70,15 @@ function wpit_gantt_diplay () {
 		
 					    $gantt_option_name = 'wpit_gantt_title-' . $numerator;
 					    $single_gantt = get_option( $gantt_option_name );
-					    if (!empty($single_gantt)) {
+					    
+					    if ( !empty( $single_gantt) ) {
 						    $shortcode = '[gantt id="' . $numerator . '"]';
 						    $sc = $single_gantt['title'];
 						    $cw = $single_gantt['cellwidth'];
 						    $ch = $single_gantt['cellheight'];
-			
-						$th .= "<tr valign=\"top\" class=\"post-$id\" id=\"post-$id\">\n";
+							
+							
+						$th .= "<tr valign=\"top\" class=\"post-$numerator\" id=\"post-$numerator\">\n";
 							$th .= "<td><span>$sc</span>\n";
 								$th .= "<div class=\"row-actions\">\n";
 								$th .= "<div class=\"row-actions\">\n";
@@ -338,12 +342,22 @@ function wpit_gestione_gantt( $id ){
 					<?php 
 					$index = 0;
 					if ( !empty($options)) {
+						
 					
 					foreach ($options as $op) {
-						$l = $op['label'];
-						$s = $op['start'];
-						$e = $op['end'];
-						$c = $op['class'];
+						
+						$l = ( isset( $op['label'] ) )?
+							$op['label']:
+							'';
+						$s = ( isset( $op['start'] ) )?
+							$op['start']:
+							'';
+						$e = ( isset( $op['end'] ) )?
+							$op['end']:
+							'';
+						$c = ( isset( $op['class'] ) )?
+							$op['class']:
+							'';
 			
 			?>
             

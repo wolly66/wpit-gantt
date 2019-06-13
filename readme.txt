@@ -1,10 +1,9 @@
 === WPIT GANTT ===
 Contributors: wolly, martinloren
-Donate link: https://www.paypal.me/wolly
 Tags: gantt, charts, gantt charts
 Requires at least: 3.4
 Tested up to: 5.2
-Stable tag: 0.6
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +31,11 @@ It has been tested only on WP 3.4 and up, maybe works with older versions too.
 1. This is a sample Gantt chart
 
 == Changelog ==
+
+=1.0=
+* added light and dark style
+* added inline display in backend
+* added new contributor Martin Loren
 
 =0.5=
 * added stable release I18N

@@ -44,15 +44,14 @@ function wpit_gantt_register_settings_page() {
 }
 add_action('admin_menu', 'wpit_gantt_register_settings_page');
 
-?>
 
-<?php function wpit_gantt_settings_page()
+function wpit_gantt_settings_page()
 {
-	if( $_POST['updated'] === 'true' ) wpit_gantt_handle_settings_form();
+	if( isset($_POST['updated'] ) && $_POST['updated'] === 'true' ) wpit_gantt_handle_settings_form();
 ?>
   <div>
   <?php screen_icon(); ?>
-  <h2>Gantt Chart Settings</h2>
+  <h2><?php _e( 'Gantt Chart Settings', 'wpit-gantt' ) ?></h2>
   <form method="post">
    <input type="hidden" name="updated" value="true" />
    <?php wp_nonce_field( 'wpit_gantt_update', 'wpit_gantt_form' ); ?>
@@ -60,7 +59,7 @@ add_action('admin_menu', 'wpit_gantt_register_settings_page');
   <?php //settings_fields( 'wpit_gantt_options_group' ); ?>
   <table>
   <tr valign="top">
-  <th scope="row"><label for="wpit_gantt_style">Style (light, dark) </label></th>
+  <th scope="row"><label for="wpit_gantt_style"><?php _e( 'Style', 'wpit-gantt' ) ?> (light, dark) </label></th>
   <td><input type="text" id="wpit_gantt_style" name="wpit_gantt_style" value="<?php echo get_option('wpit_gantt_style', 'dark'); ?>" /></td>
   </tr>
   </table>
@@ -75,7 +74,7 @@ function wpit_gantt_handle_settings_form() {
         ! wp_verify_nonce( $_POST['wpit_gantt_form'], 'wpit_gantt_update' )
     ){ ?>
         <div class="error">
-           <p>Sorry, your nonce was not correct. Please try again.</p>
+           <p><?php _e( 'Sorry, your nonce was not correct. Please try again.', 'wpit-gantt' ) ?></p>
         </div> 
 <?php
         exit;
@@ -85,7 +84,7 @@ function wpit_gantt_handle_settings_form() {
 		update_option( 'wpit_gantt_style', $style ); 
 ?>        
 			<div class="updated">
-				<p>Your fields were saved!</p>
+				<p><? _e( 'Your fields were saved!', 'wpit-gantt' ) ?></p>
 			</div>        
 <?php  }
 }
