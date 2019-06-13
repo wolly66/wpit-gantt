@@ -1,5 +1,5 @@
 === WPIT GANTT ===
-Contributors: wolly
+Contributors: wolly, martinloren
 Donate link: https://www.paypal.me/wolly
 Tags: gantt, charts, gantt charts
 Requires at least: 3.4
