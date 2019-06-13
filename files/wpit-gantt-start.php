@@ -409,7 +409,7 @@ function wpit_render_gantt($atts){
 	$gantt_data_option = 'wpit_gantt-' . $id;
 	$header = get_option( $gantt_option_name );
 	$data = get_option( $gantt_data_option );
-   require(WPIT_GANTT_PATH .'lib/gantti.php'); 
+   require_once(WPIT_GANTT_PATH .'lib/gantti.php'); 
     
 
    	date_default_timezone_set('UTC');

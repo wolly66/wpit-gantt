@@ -2,17 +2,19 @@
 /**
  * @package WPIT GANTT
  * @author Paolo Valenti
- * @version 0.1 first release
+ * @version 0.6 correct localization
  */
 /*
-Plugin Name: WP GANTT
+Plugin Name: WPIT GANTT
 Plugin URI: http://paolovalenti.info/gantt
-Description: This plugin allow you to create and insert GANTT chart into pages and posts 
-Author: Paolo Valenti
-Version: 0.1
+Description: This plugin allow you to create and insert GANTT chart into pages and posts
+Author: wolly
+Text Domain: wpit-gantt
+Domain Path: /lang
+Version: 0.6
 Author URI: http://paolovalenti.info
 */
-/*  
+/*
 	Copyright 2012  Paolo Valenti aka Wolly  (email : wolly66@gmail.com)
 
     This program is free software; you can redistribute it and/or modify
@@ -41,7 +43,7 @@ Author URI: http://paolovalenti.info
 
 function wpit_gantt_init() {
 
-	load_plugin_textdomain( 'wpit-gantt', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' ); 
+	load_plugin_textdomain( 'wpit-gantt', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
 }
 
 add_action('plugins_loaded', 'wpit_gantt_init');
@@ -55,58 +57,58 @@ define( 'WPIT_GANTT_PATH', plugin_dir_path(__FILE__) );
 //
 //$data[] = array(
 //  'label' => 'Project 1',
-//  'start' => '2012-04-20', 
+//  'start' => '2012-04-20',
 //  'end'   => '2012-05-12'
 //);
 //
 //$data[] = array(
 //  'label' => 'Project 2',
-//  'start' => '2012-04-22', 
+//  'start' => '2012-04-22',
 //  'end'   => '2012-05-22'
 //);
 //
 //$data[] = array(
 //  'label' => 'Project 3',
-//  'start' => '2012-05-25', 
+//  'start' => '2012-05-25',
 //  'end'   => '2012-06-20'
 //);
 //
 //$data[] = array(
 //  'label' => 'Project 4',
-//  'start' => '2012-05-06', 
+//  'start' => '2012-05-06',
 //  'end'   => '2012-06-17',
 //  'class' => 'important',
 //);
 //
 //$data[] = array(
 //  'label' => 'Project 5',
-//  'start' => '2012-05-11', 
-//  'end'   => '2012-06-03', 
+//  'start' => '2012-05-11',
+//  'end'   => '2012-06-03',
 //  'class' => 'urgent',
 //);
 //
 //$data[] = array(
 //  'label' => 'Project 6',
-//  'start' => '2012-05-15', 
+//  'start' => '2012-05-15',
 //  'end'   => '2012-07-03'
 //);
 //
 //$data[] = array(
 //  'label' => 'Project 7',
-//  'start' => '2012-06-01', 
-//  'end'   => '2012-07-03', 
+//  'start' => '2012-06-01',
+//  'end'   => '2012-07-03',
 //  'class' => 'important',
 //);
 //
 //$data[] = array(
 //  'label' => 'Project 8',
-//  'start' => '2012-06-01', 
+//  'start' => '2012-06-01',
 //  'end'   => '2012-08-05'
 //);
 //
 //$data[] = array(
 //  'label' => 'Project 9',
-//  'start' => '2012-07-22', 
+//  'start' => '2012-07-22',
 //  'end'   => '2012-09-05',
 //  'class' => 'urgent',
 //);
@@ -116,9 +118,9 @@ define( 'WPIT_GANTT_PATH', plugin_dir_path(__FILE__) );
 //
 
 //include all plugin files
-include WPIT_GANTT_PATH . 'files/wpit-gantt-functions.php';
+require_once WPIT_GANTT_PATH . 'files/wpit-gantt-functions.php';
 
-include WPIT_GANTT_PATH . 'files/wpit-gantt-start.php';
+require_once WPIT_GANTT_PATH . 'files/wpit-gantt-start.php';
 
 /**
      * Register with hook 'wp_enqueue_scripts', which can be used for front end CSS and JavaScript
@@ -130,8 +132,8 @@ include WPIT_GANTT_PATH . 'files/wpit-gantt-start.php';
      */
     function wpit_gantt_stylesheet() {
         // Respects SSL, Style.css is relative to the current file
-        
-        
+
+
         //wp_register_style( 'wpit_gant_screen', plugins_url('styles/css/screen.css' , __FILE__ ));
         wp_register_style( 'wpit_gant_gantti', plugins_url('styles/css/gantti.css' , __FILE__ ));
         //wp_enqueue_style( 'wpit_gant_screen' );

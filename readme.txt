@@ -1,10 +1,10 @@
 === WPIT GANTT ===
 Contributors: wolly
-Donate link: no link
+Donate link: https://www.paypal.me/wolly
 Tags: gantt, charts, gantt charts
 Requires at least: 3.4
-Tested up to: 3.4.1
-Stable tag: 0.1
+Tested up to: 5.2
+Stable tag: 0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,7 +32,26 @@ It has been tested only on WP 3.4 and up, maybe works with older versions too.
 1. This is a sample Gantt chart
 
 == Changelog ==
-=0.1= 
+
+=0.5=
+* added stable release I18N
+
+=0.5=
+* added correct localization
+
+=0.4=
+* correct a bug
+
+=0.3=
+
+Readded style directory missing in 0.2
+Sorry all.
+
+
+=0.2=
+* correct a bug
+
+=0.1=
 * first release, very beta
 
 

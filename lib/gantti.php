@@ -1,6 +1,6 @@
 <?php
 
-require('calendar.php'); 
+require_once('calendar.php'); 
 
 class Gantti {
 
