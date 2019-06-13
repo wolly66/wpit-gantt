@@ -87,7 +87,7 @@ class Gantti {
     }
 
     // sidebar with labels
-    $html[] = '<aside>';
+    $html[] = '<div style="position:relative;"><aside>';
     $html[] = '<ul class="gantt-labels" style="margin-top: ' . (($this->options['cellheight']*2)+1) . 'px">';
     foreach($this->blocks as $i => $block) {
       $html[] = '<li class="gantt-label"><strong ' . $cellstyle . '>' . $block['label'] . '</strong></li>';      
@@ -169,7 +169,7 @@ class Gantti {
     }
     
     // end data section
-    $html[] = '</section>';    
+    $html[] = '</section></div>';    
 
     // end diagram
     $html[] = '</figure>';
