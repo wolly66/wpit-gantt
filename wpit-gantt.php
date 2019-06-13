@@ -135,7 +135,8 @@ require_once WPIT_GANTT_PATH . 'files/wpit-gantt-start.php';
 
 
         //wp_register_style( 'wpit_gant_screen', plugins_url('styles/css/screen.css' , __FILE__ ));
-        wp_register_style( 'wpit_gant_gantti', plugins_url('styles/css/gantti.css' , __FILE__ ));
+        //wp_register_style( 'wpit_gant_gantti', plugins_url('styles/css/gantti.css' , __FILE__ ));
+		wp_register_style( 'wpit_gant_gantti', plugins_url('styles/css/gantti_'.get_option('wpit_gantt_style', 'dark').'.css' , __FILE__ ));
         //wp_enqueue_style( 'wpit_gant_screen' );
         wp_enqueue_style( 'wpit_gant_gantti' );
     }
