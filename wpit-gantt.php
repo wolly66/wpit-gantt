@@ -2,7 +2,7 @@
 /**
  * @package WPIT GANTT
  * @author Paolo Valenti
- * @version 0.6 correct localization
+ * @version 1.1 some changes in CSS
  */
 /*
 Plugin Name: WPIT GANTT
@@ -11,7 +11,7 @@ Description: This plugin allow you to create and insert GANTT chart into pages a
 Author: wolly
 Text Domain: wpit-gantt
 Domain Path: /lang
-Version: 0.6
+Version: 1.1
 Author URI: http://paolovalenti.info
 */
 /*
@@ -140,5 +140,3 @@ require_once WPIT_GANTT_PATH . 'files/wpit-gantt-start.php';
         //wp_enqueue_style( 'wpit_gant_screen' );
         wp_enqueue_style( 'wpit_gant_gantti' );
     }
-
-?>
