@@ -14,9 +14,9 @@ function wpit_num_activation(){
 $num = get_option( 'wpit_gantt_num' );
 
 	if (empty($num)) {
-		
+
 		$num = 0;
-		
+
 		update_option( 'wpit_gantt_num' , $num );
 	}
 }
@@ -55,7 +55,7 @@ function wpit_gantt_settings_page()
   <form method="post">
    <input type="hidden" name="updated" value="true" />
    <?php wp_nonce_field( 'wpit_gantt_update', 'wpit_gantt_form' ); ?>
-    
+
   <?php //settings_fields( 'wpit_gantt_options_group' ); ?>
   <table>
   <tr valign="top">
@@ -63,11 +63,11 @@ function wpit_gantt_settings_page()
   <td><input type="text" id="wpit_gantt_style" name="wpit_gantt_style" value="<?php echo get_option('wpit_gantt_style', 'dark'); ?>" /></td>
   </tr>
   </table>
-  <?php  submit_button(); ?>
+  <?php submit_button(); ?>
   </form>
   </div>
 <?php
-} 
+}
 
 function wpit_gantt_handle_settings_form() {
     if(! isset( $_POST['wpit_gantt_form'] ) ||
@@ -75,17 +75,17 @@ function wpit_gantt_handle_settings_form() {
     ){ ?>
         <div class="error">
            <p><?php _e( 'Sorry, your nonce was not correct. Please try again.', 'wpit-gantt' ) ?></p>
-        </div> 
+        </div>
 <?php
         exit;
     } else {
         // Handle our form data
 		$style = sanitize_text_field( $_POST['wpit_gantt_style'] );
-		update_option( 'wpit_gantt_style', $style ); 
-?>        
+		update_option( 'wpit_gantt_style', $style );
+?>
 			<div class="updated">
 				<p><? _e( 'Your fields were saved!', 'wpit-gantt' ) ?></p>
-			</div>        
+			</div>
 <?php  }
 }
 
