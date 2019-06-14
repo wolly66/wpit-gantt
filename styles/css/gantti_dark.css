@@ -4,7 +4,9 @@
   position: relative;
   overflow: hidden;
   color: #93a1a1;
-  background: #002b36; }
+  background: #002b36;
+  padding: 0;
+}
 
 .gantt * {
   font-weight: normal;
@@ -16,10 +18,8 @@
 
 /* optional title */
 .gantt figcaption {
-  position: absolute;
-  top: 25px;
-  left: 20px;
-  font-size: 20px;
+  font-size: 18px;
+  margin-left: 20px;
   color: white;
   text-transform: uppercase;
   letter-spacing: 4px; }
