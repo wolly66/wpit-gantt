@@ -1,4 +1,6 @@
-wpit-gannt
+wpit-gantt
 ==========
 
-Gannt chart generator plugin for Wordpress.
+Gantt chart generator plugin for Wordpress.
+
+![Screenshot](screenshot-1.png)
