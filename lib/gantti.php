@@ -76,6 +76,7 @@ class Gantti {
 
     // common styles
     $cellstyle  = 'style="line-height: ' . $this->options['cellheight'] . 'px; height: ' . $this->options['cellheight'] . 'px"';
+    $titlecellstyle  = 'style="height: ' . $this->options['cellheight']*2 . 'px"';
     $wrapstyle  = 'style="width: ' . $this->options['cellwidth'] . 'px"';
     $totalstyle = 'style="width: ' . (count($this->days)*$this->options['cellwidth']) . 'px"';
 
@@ -89,12 +90,9 @@ class Gantti {
     $html[] = '<ul class="gantt-labels">';
 
     // set a title if available
-    if($this->options['title']) {
-      $html[] = '<li class="gantt-label"><figcaption ' . $cellstyle . '>' . $this->options['title'] . '</figcaption></li>';
-    } else {
-      $html[] = '<li class="gantt-label"><figcaption ' . $cellstyle . '> </figcaption></li>';
-    }
-    $html[] = '<li class="gantt-label"><figcaption ' . $cellstyle . '> </figcaption></li>';
+    $html[] = '<li class="gantt-label gantt-title-label" ' . $titlecellstyle . '><figcaption ' . $titlecellstyle . '>';
+    if($this->options['title']) $html[] = $this->options['title'];
+    $html[] = '</figcaption></li>';
 
     foreach($this->blocks as $i => $block) {
       $html[] = '<li class="gantt-label"><strong ' . $cellstyle . '>' . $block['label'] . '</strong></li>';

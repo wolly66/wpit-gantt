@@ -19,8 +19,9 @@
 /* optional title */
 .gantt figcaption {
   font-size: 18px;
-  margin-left: 20px;
   color: white;
+  display: table-cell;
+  vertical-align: middle;
   text-transform: uppercase;
   letter-spacing: 4px; }
 
@@ -50,6 +51,12 @@
 
 .gantt aside .gantt-labels {
   border-top: 1px solid #001f27; }
+
+.gantt aside .gantt-title-label {
+  /*border-bottom:1px solid #00171c;*/
+  vertical-align: middle;
+  padding-left: 20px;
+}
 
 .gantt aside .gantt-label strong {
   display: block;

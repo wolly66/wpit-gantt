@@ -21,10 +21,12 @@
   /*position: absolute;
   top: 25px;
   left: 20px;*/
+  display: table-cell;
+  vertical-align: middle;
   font-size: 18px;
-  padding-left: 20px;
   text-transform: uppercase;
-  letter-spacing: 4px; }
+  /*letter-spacing: 4px;*/
+}
 
 /* sidebar */
 .gantt aside {
@@ -32,8 +34,10 @@
   left: 0;
   bottom: 0;
   top: 0;
-  border: 1px solid #00171c;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #00171c;
   border-right: none;
+  width: 200px;
   /*border-right: 1px solid #00171c;*/
   z-index: 2; }
 
@@ -54,6 +58,12 @@
 .gantt aside .gantt-labels {
  /* border-top: 1px solid #001f27;*/
  }
+
+.gantt aside .gantt-title-label {
+  border-bottom:1px solid #00171c;
+  position: relative;
+  padding-left: 20px;
+}
 
 .gantt aside .gantt-label strong {
   display: block;
