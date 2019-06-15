@@ -3,7 +3,7 @@ Contributors: wolly, martinloren
 Tags: gantt, charts, gantt charts
 Requires at least: 3.4
 Tested up to: 5.2
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,8 @@ It has been tested only on WP 3.4 and up, maybe works with older versions too.
 
 == Changelog ==
 
+=1.1=
+* improvements in light and dark style
 =1.0=
 * added light and dark style
 * added inline display in backend
