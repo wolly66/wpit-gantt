@@ -55,12 +55,31 @@
 .gantt aside .gantt-title-label {
   /*border-bottom:1px solid #00171c;*/
   vertical-align: middle;
-  padding-left: 20px;
+  padding-left: 12px;
+}
+
+.gantt aside .gantt-tasktitle-label {
+  border-bottom:1px solid #001f27;
+  padding: 0 12px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.gantt aside .gantt-tasktitle-label strong {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.gantt aside .gantt-label-last {
+  padding-left: 12px;
+  padding-bottom: 12px;
+  border-left: 1px solid #001f27;
 }
 
 .gantt aside .gantt-label strong {
   display: block;
-  padding: 0 20px;
+  padding: 0 12px;
   color: #93a1a1;
   border-bottom: 1px solid #001f27; }
 
@@ -123,7 +142,7 @@
   opacity: .9; }
 
 .gantt-block-label {
-  display: block;
+  display: inline;
   color: white;
   padding: 5px 10px; }
 

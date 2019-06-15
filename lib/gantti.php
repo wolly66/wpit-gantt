@@ -44,7 +44,8 @@ class Gantti {
         'label' => $d['label'],
         'start' => $start = strtotime($d['start']),
         'end'   => $end   = strtotime($d['end']),
-        'class' => @$d['class']
+        'class' => @$d['class'],
+        'link' => $d['link']
       );
 
       if(!$this->first || $this->first > $start) $this->first = $start;
@@ -76,7 +77,7 @@ class Gantti {
 
     // common styles
     $cellstyle  = 'style="line-height: ' . $this->options['cellheight'] . 'px; height: ' . $this->options['cellheight'] . 'px"';
-    $titlecellstyle  = 'style="height: ' . $this->options['cellheight']*2 . 'px"';
+    $titlecellstyle  = 'style="height: ' . $this->options['cellheight']*1 . 'px"';
     $wrapstyle  = 'style="width: ' . $this->options['cellwidth'] . 'px"';
     $totalstyle = 'style="width: ' . (count($this->days)*$this->options['cellwidth']) . 'px"';
 
@@ -90,12 +91,20 @@ class Gantti {
     $html[] = '<ul class="gantt-labels">';
 
     // set a title if available
-    $html[] = '<li class="gantt-label gantt-title-label" ' . $titlecellstyle . '><figcaption ' . $titlecellstyle . '>';
+    $html[] = '<li class="gantt-title-label" ' . $titlecellstyle . '><figcaption ' . $titlecellstyle . '>';
     if($this->options['title']) $html[] = $this->options['title'];
     $html[] = '</figcaption></li>';
 
+    //Task title
+    $html[] = '<li class="gantt-tasktitle-label" ' . $titlecellstyle . '><strong ' . $titlecellstyle . '>' .  __('Task' , 'wpit-gantt') . '</strong></li>';
+
+    $class_l="gantt-label";
     foreach($this->blocks as $i => $block) {
-      $html[] = '<li class="gantt-label"><strong ' . $cellstyle . '>' . $block['label'] . '</strong></li>';
+      //echo $i." ";
+      if ($i == count($this->blocks)-1) $class_l="gantt-label-last";
+      if (!empty($block['link'])) $_label = '<a href="'.$block['link'].'" target="_blank">'.$block['label'].'</a>';
+      else $_label = $block['label'];
+      $html[] = '<li class="'.$class_l.'"><strong ' . $cellstyle . '>' . $_label . '</strong></li>';
     }
     $html[] = '</ul>';
     $html[] = '</aside>';
